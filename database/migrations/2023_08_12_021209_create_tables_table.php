@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->dateTime('start_time')->nullable();
+            $table->boolean('is_used');
         });
     }
 

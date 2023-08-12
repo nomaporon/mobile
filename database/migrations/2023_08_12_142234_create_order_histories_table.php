@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('earnings', function (Blueprint $table) {
+        Schema::create('order_histories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('food_id')->constrained('foods');
+            $table->foreignId('table_id')->constrained('tables');
+            $table->integer('quantity');
+            $table->boolean('is_served');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('earnings');
+        Schema::dropIfExists('order_histories');
     }
 };
