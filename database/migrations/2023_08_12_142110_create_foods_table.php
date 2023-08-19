@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->integer('unit_price');
             $table->integer('gross_profit')->nullable();
-            $table->foreignId('category_id')->constrained('categories');
         });
     }
 
