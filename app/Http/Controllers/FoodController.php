@@ -9,6 +9,6 @@ class FoodController extends Controller
 {
     public function index(Food $food)
     {
-        return $food->get();
+        return view('foods.index')->with(['foods' => $food->get()]);
     }
 }
