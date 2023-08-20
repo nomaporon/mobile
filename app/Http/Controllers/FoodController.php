@@ -11,4 +11,9 @@ class FoodController extends Controller
     {
         return view('foods.index')->with(['foods' => $food->get()]);
     }
+    
+    public function show(Food $food)
+        {
+        return view('foods.show')->with(['foods' => $food->get()]);
+    }
 }
