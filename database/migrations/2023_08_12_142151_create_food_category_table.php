@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('food_category', function (Blueprint $table) {
             $table->foreignId('food_id')->constrained('foods');
             $table->foreignId('category_id')->constrained('categories');
+            $table->primary(['food_id', 'category_id']);
         });
     }
 
