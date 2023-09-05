@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MenuController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +20,33 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::controller(FoodController::class)->group(function(){
-    Route::get('/foods', 'show');
+
+// Route::controller(CategoryController::class)->group(function(){
+//     Route::get('/category', 'index');
+// });
+
+Route::controller(MenuController::class)->group(function(){
+    Route::get('/menu', 'index');
 });
 
-Route::controller(CategoryController::class)->group(function(){
-    Route::get('/', 'index');
+
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

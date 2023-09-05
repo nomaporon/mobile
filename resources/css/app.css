@@ -1,0 +1,48 @@
+/*.header {*/
+/*    width: 360px;*/
+/*    height: 60px;*/
+/*    background-color: #C0C0C0；*/
+/*}*/
+
+.header {
+    display: inline-block;
+    width: 360px;
+    background-color: #C0C0C0;
+    cursor: pointer;
+}
+
+.title {
+    text-align: center;
+}
+
+.category-header {
+    float: left;
+}
+
+.category {
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 0 6px #e8e8e8;
+    background-color: #C0C0C0;
+    cursor: pointer;
+}
+
+.category-item {
+    border-radius: 1px;
+    padding: 12px 0 16px;
+}
+
+.food-card {
+    display: inline-block;
+    width: 22.5%;
+    margin-right: 24px;
+    text-align: center;
+    box-shadow: 0 0 6px #e8e8e8;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.food-item {
+    border-radius: 4px;
+    padding: 48px 0 64px;
+}

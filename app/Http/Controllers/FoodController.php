@@ -13,7 +13,7 @@ class FoodController extends Controller
     }
     
     public function show(Food $food)
-        {
+    {
         return view('foods.show')->with(['foods' => $food->get()]);
     }
 }
