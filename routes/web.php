@@ -7,6 +7,8 @@ use Inertia\Inertia;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderListController;
+use App\Http\Controllers\OrderHistoryController;
 
 
 /*
@@ -26,11 +28,18 @@ use App\Http\Controllers\MenuController;
 // });
 
 Route::controller(MenuController::class)->group(function(){
-    Route::get('/menu', 'index');
+    Route::get('/', 'index');
 });
 
+Route::controller(OrderListController::class)->group(function(){
+    Route::get('/list', 'index');
+});
 
-Route::get('/', function () {
+Route::controller(OrderHistoryController::class)->group(function(){
+    Route::get('/history', 'index');
+});
+
+Route::get('/Welcome', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
