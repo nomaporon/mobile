@@ -6,7 +6,6 @@ import "../../../css/app.css";
 
 const Index = (props) => {
     const categories = props.categories;
-    const initialMenuIndex = categories[0].foods;
     const [selectedCategoryId, setSelectedCategoryId] = useState(0);
     const menuIndex = categories[selectedCategoryId].foods;
     

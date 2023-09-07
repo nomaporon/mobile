@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 
 const Category = (props) => {
     const category_name = props.category_name
-    const [isClickCategory, handleClickCategory] = useState(false);
     
     return (
-        <div
-          className='category-item'
-          onClick={() => {handleClickCategory(true)}}
-        >
+        <div className='category-item'>
           <p>{category_name}</p>
         </div>
         );
