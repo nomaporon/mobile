@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../Components/Header';
 import Category from '../../Components/Category';
 import Food from '../../Components/Food';
+import Footer from '../../Components/Footer';
 import "../../../css/app.css";
 
 const Index = (props) => {
@@ -31,9 +32,9 @@ const Index = (props) => {
                     />
                 )) }
             </div>
+            <Footer />
         </div>
         );
-        
 }
 
 export default Index;
