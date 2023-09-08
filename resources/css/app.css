@@ -4,11 +4,10 @@
 /*    background-color: #C0C0C0；*/
 /*}*/
 
-.header {
-    display: inline-block;
-    width: 360px;
+header {
+    padding: 5px 0;
+    margin: 5px auto 0;
     background-color: #C0C0C0;
-    cursor: pointer;
 }
 
 .title {
@@ -16,20 +15,18 @@
 }
 
 .category-header {
-    float: left;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .category {
     display: inline-block;
+    padding: 0px 10px;
     text-align: center;
     box-shadow: 0 0 6px #e8e8e8;
     background-color: #C0C0C0;
     cursor: pointer;
-}
-
-.category-item {
-    border-radius: 1px;
-    padding: 12px 0 16px;
 }
 
 .food-card {
@@ -67,8 +64,14 @@
     border-radius: 8px;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+}
+
 .footer-item {
     display: inline-block;
+    padding: 16px 10px;
     text-align: center;
     box-shadow: 0 0 6px #e8e8e8;
     background-color: #C0C0C0;

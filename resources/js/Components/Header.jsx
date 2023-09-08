@@ -3,9 +3,9 @@ import "../../css/app.css";
 
 const Header = (props) => {
     return (
-        <div className="header">
+        <header>
             <h1 className="title">{props.title}</h1>
-        </div>
+        </header>
         );
 }
 

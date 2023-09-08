@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import Header from '../../Components/Header';
-import Footer from '../../Components/Footer';
 
-const List = () => {
+const History = () => {
   const [count, setCount] = useState(0);
 
   return (
     <div>
-      <Header title="注文リスト" />
-      <Footer />
+    　<Header title="注文履歴一覧" />
     </div>
   );
 }
 
-export default List;
+export default History;

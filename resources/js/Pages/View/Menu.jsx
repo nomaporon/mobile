@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import Header from '../../Components/Header';
 import Category from '../../Components/Category';
 import Food from '../../Components/Food';
-import Footer from '../../Components/Footer';
 import "../../../css/app.css";
 
-const Index = (props) => {
+const Menu = (props) => {
     const categories = props.categories;
     const [selectedCategoryId, setSelectedCategoryId] = useState(0);
     const menuIndex = categories[selectedCategoryId].foods;
@@ -19,22 +18,17 @@ const Index = (props) => {
                         className="category"
                         onClick={() => setSelectedCategoryId(parseInt(category.id) - 1)}
                     >
-                        <Category
-                            category_name={category.category} 
-                        />
+                        <Category category_name={category.category} />
                     </div>
                 )) }
             </div>
             <div className="menu-index">
                 { menuIndex.map((food) => (
-                    <Food
-                        food={food}
-                    />
+                    <Food food={food} />
                 )) }
             </div>
-            <Footer />
         </div>
         );
 }
 
-export default Index;
+export default Menu;

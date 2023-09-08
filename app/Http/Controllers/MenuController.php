@@ -25,6 +25,6 @@ class MenuController extends Controller
             array_push($categories_foods, array("id" => "{$category_name['id']}", "category" => "{$category_name['name']}", "foods" => $category_foods));
             $category_foods = array();
         }
-        return Inertia::render("Menu/Index",["categories" => $categories_foods]);
+        return Inertia::render("App",["categories" => $categories_foods]);
     }
 }

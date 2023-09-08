@@ -1,19 +1,20 @@
 import React from 'react';
+import { BrowserRouter, Route, Link, NavLink } from "react-router-dom";
 import "../../css/app.css";
 
 const Footer = () => {
     return (
-        <div className="footer">
-            <a href="/">
-                <div className="footer-item">メニュー</div>
-            </a>
-            <a href="/list"> 
-                <div className="footer-item">注文リスト</div>
-            </a>
-            <a href="/history">
-                <div className="footer-item">注文履歴・お会計</div>
-            </a>
-        </div>
+        <footer>
+            <div className="footer-item">
+                <NavLink to="/">メニュー</NavLink>
+            </div>
+            <div className="footer-item">
+                <NavLink to="/list">注文リスト</NavLink>
+            </div>
+            <div className="footer-item">
+                <NavLink to="/history">注文履歴・お会計</NavLink>
+            </div>
+        </footer>
         );
 }
 
