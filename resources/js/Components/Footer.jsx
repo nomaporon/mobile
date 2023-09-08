@@ -5,15 +5,21 @@ import "../../css/app.css";
 const Footer = () => {
     return (
         <footer>
-            <div className="footer-item">
-                <NavLink to="/">メニュー</NavLink>
-            </div>
-            <div className="footer-item">
-                <NavLink to="/list">注文リスト</NavLink>
-            </div>
-            <div className="footer-item">
-                <NavLink to="/history">注文履歴・お会計</NavLink>
-            </div>
+            <NavLink to="/">
+                <div className="footer-item">
+                    メニュー
+                </div>
+            </NavLink>
+            <NavLink to="/list">
+                <div className="footer-item">
+                    注文リスト
+                </div>
+            </NavLink>
+            <NavLink to="/history">
+                <div className="footer-item">
+                    注文履歴・お会計
+                </div>
+            </NavLink>
         </footer>
         );
 }
