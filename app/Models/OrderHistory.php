@@ -14,4 +14,9 @@ class OrderHistory extends Model
     protected $fillable = [
         'is_served'
     ];
+    
+    public function food()
+    {
+        return $this->belongsTo(Food::class);
+    }
 }

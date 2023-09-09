@@ -22,4 +22,14 @@ class Food extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+    
+    public function order_lists()
+    {
+        return $this->hasMany(OrderList::class);
+    }
+    
+    public function order_histories()
+    {
+        return $this->hasMany(OrderHistory::class);
+    }
 }

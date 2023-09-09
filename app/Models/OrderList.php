@@ -15,4 +15,8 @@ class OrderList extends Model
         'quantity'
     ];
     
+    public function food()
+    {
+        return $this->belongsTo(Food::class);
+    }
 }

@@ -16,7 +16,7 @@ const Menu = (props) => {
                 { categories.map((category) => (
                     <div 
                         className="category"
-                        onClick={() => setSelectedCategoryId(parseInt(category.id) - 1)}
+                        onClick={() => setSelectedCategoryId(category.id - 1)}
                     >
                         <Category category_name={category.category} />
                     </div>

@@ -16,19 +16,14 @@ const App = (props) => {
   const categories = props.categories;
   const order_list = props.order_list;
   const order_history = props.order_history;
-  console.log(categories);
+  console.log(order_list);
   
   return (
       <div>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Menu categories={categories} />} />
-            <Route path="/list" element={
-              <List
-                categories={categories}
-                order_list={order_list}
-              />}
-            />
+            <Route path="/list" element={<List order_list={order_list} />} />
             <Route path="/history" element={<History order_history={order_history}/>} />
           </Routes>
           <Footer />

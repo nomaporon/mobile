@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from '../../Components/Header';
 
 const List = (props) => {
-  const categories = props.categories;
   const order_list = props.order_list;
   
   return (
@@ -11,7 +10,9 @@ const List = (props) => {
       <div className="order-list">
         { order_list.map((order) => (
           <div>
-            <p>{ order }</p>
+            <p>{ order.food_name }</p>
+            <p>{ order.quantity }</p>
+            <p>{ order.price }</p>
           </div>
         )) }
       </div>
