@@ -43,9 +43,9 @@ class AppController extends Controller
         }
         
         /**
-         *  $order_list->get() = [{id: 1, food_id: 10, table_id: 1, quantity: 1}, {id: 2, food_id: 8, table_id: 1, quantity: 2},...]
+         *  $order_lists->get() = [{id: 1, food_id: 10, table_id: 1, quantity: 1}, {id: 2, food_id: 8, table_id: 1, quantity: 2},...]
          *  注文料理名、数量、金額を返す
-         *  $order_info = 
+         *  $order_info = [{"food_name" => "オレンジジュース", "quantity" => 1, "price" => 200}, {"food_name" => "アイスクリーム", "quantity" => 2, "price" => 600}]
          */
         $order_info = array();
         
@@ -58,15 +58,37 @@ class AppController extends Controller
         }
         
         /**
+         *  $order_histories->get() = [{id: 1, food_id: 1, table_id: 1, quantity: 1, is_served: 1,..}, {id: 2, food_id: 2, table_id: 1, quantity: 2, is_served: 0, …},...]
+         */
+        $order_history_info = array();
+        $total_price = 0;
+        
+        foreach ($order_histories->get() as $order_history){
+            array_push($order_history_info, array(
+                    "food_name" => "{$order_history->food->name}",
+                    "quantity" => $order_history['quantity'],
+                    "price" => intval($order_history->food->unit_price) * $order_history['quantity']
+                ));
+            
+            $total_price += (intval($order_history->food->unit_price) * $order_history['quantity']);
+        }
+        
+        $order_history_and_total_price = array(
+                "order_history" => $order_history_info,
+                "total_price" => $total_price
+            );
+        
+        /**
          *  return categories [Array]  [{"id" => 1, "category" => "おすすめ", "foods" => [{"food_id" => 1, "name" => "焼肉定食", image" => "...", "price" => 650}, ...]
-         *  return order_list [Array]  
-         *  return order_history [Array]  [{id: 1, food_id: 1, table_id: 1, quantity: 1, is_served: 1,..}, {id: 2, food_id: 2, table_id: 1, quantity: 2, is_served: 0, …},...]
+         *  return order_list [Array]  [{"food_name" => "オレンジジュース", "quantity" => 1, "price" => 200}, {"food_name" => "アイスクリーム", "quantity" => 2, "price" => 600}]
+         *  return order_history [Object]  {"order_history" => [{"food_name" => "オレンジジュース", "quantity" => 1, "price" => 200},..], total_price => 1250}
          */ 
         return Inertia::render(
                 "App",
                 [
                     "categories" => $categories_foods,
                     "order_list" => $order_info,
+                    "order_history" => $order_history_and_total_price
                 ]
             );
     }

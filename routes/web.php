@@ -31,14 +31,6 @@ Route::controller(AppController::class)->group(function(){
     Route::get('/', 'index');
 });
 
-Route::controller(OrderListController::class)->group(function(){
-    Route::get('/list', 'index');
-});
-
-Route::controller(OrderHistoryController::class)->group(function(){
-    Route::get('/history', 'index');
-});
-
 Route::get('/Welcome', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
