@@ -44,7 +44,7 @@ class AppController extends Controller
         
         /**
          *  $order_lists->get() = [{id: 1, food_id: 10, table_id: 1, quantity: 1}, {id: 2, food_id: 8, table_id: 1, quantity: 2},...]
-         *  注文料理名、数量、金額を返す
+         *  注文リストに追加した料理名、数量、金額を返す
          *  $order_info = [{"food_name" => "オレンジジュース", "quantity" => 1, "price" => 200}, {"food_name" => "アイスクリーム", "quantity" => 2, "price" => 600}]
          */
         $order_info = array();
@@ -59,6 +59,7 @@ class AppController extends Controller
         
         /**
          *  $order_histories->get() = [{id: 1, food_id: 1, table_id: 1, quantity: 1, is_served: 1,..}, {id: 2, food_id: 2, table_id: 1, quantity: 2, is_served: 0, …},...]
+         *  注文した料理名、数量、金額と合計金額を返す
          */
         $order_history_info = array();
         $total_price = 0;

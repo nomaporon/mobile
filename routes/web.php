@@ -29,6 +29,8 @@ use App\Http\Controllers\OrderHistoryController;
 
 Route::controller(AppController::class)->group(function(){
     Route::get('/', 'index');
+    Route::get('/list', 'index');
+    Route::get('/history', 'index');
 });
 
 Route::get('/Welcome', function () {

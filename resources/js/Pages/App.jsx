@@ -16,7 +16,6 @@ const App = (props) => {
   const categories = props.categories;
   const order_list = props.order_list;
   const order_history = props.order_history;
-  console.log(typeof(order_history));
   
   return (
       <div>
