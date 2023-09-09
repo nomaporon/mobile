@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from '../../Components/Header';
 
 const History = () => {
-  const [count, setCount] = useState(0);
 
   return (
     <div>

@@ -8,20 +8,33 @@ import Footer from '../Components/Footer';
 import "../../css/app.css";
 
 const App = (props) => {
-    const categories = props.categories;
-    
-    return (
-        <div>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Menu categories={categories} />} />
-              <Route path="/list" element={<List />} />
-              <Route path="/history" element={<History />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-        </div>
-        );
+  {/*
+    categories [Array]  [{"id" => 1, "category" => "おすすめ", "foods" => [{"name" => "焼肉定食", "price" => 650}, {"name" => "サラダ", "price" => 250}]}, ...]
+    order_list [Array]  [{id: 1, food_id: 10, table_id: 1, quantity: 1}, {id: 2, food_id: 8, table_id: 1, quantity: 2},...]
+    order_history [Array]  [{id: 1, food_id: 1, table_id: 1, quantity: 1, is_served: 1,..},...]
+  */}
+  const categories = props.categories;
+  const order_list = props.order_list;
+  const order_history = props.order_history;
+  console.log(categories);
+  
+  return (
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Menu categories={categories} />} />
+            <Route path="/list" element={
+              <List
+                categories={categories}
+                order_list={order_list}
+              />}
+            />
+            <Route path="/history" element={<History order_history={order_history}/>} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </div>
+      );
 }
 
 export default App;

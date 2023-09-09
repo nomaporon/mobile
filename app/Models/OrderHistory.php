@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderList extends Model
+class OrderHistory extends Model
 {
     use HasFactory;
     
-    protected $table = 'order_lists';
+    protected $table = 'order_histories';
     
     protected $fillable = [
-        'quantity'
+        'is_served'
     ];
-    
 }

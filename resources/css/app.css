@@ -91,6 +91,15 @@ header {
     margin: 0 5px;
 }
 
+.counter {
+    display: flex;
+    justify-content: center;
+}
+
+.count-btn {
+    margin:0 10px 0 auto;
+}
+
 footer {
     width: 100%;
     position: fixed;
