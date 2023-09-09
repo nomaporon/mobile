@@ -31,6 +31,7 @@ Route::controller(AppController::class)->group(function(){
     Route::get('/', 'index');
     Route::get('/list', 'index');
     Route::get('/history', 'index');
+    Route::post('/add_order', 'add_order_list');
 });
 
 Route::get('/Welcome', function () {

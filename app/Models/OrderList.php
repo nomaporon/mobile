@@ -12,8 +12,12 @@ class OrderList extends Model
     protected $table = 'order_lists';
     
     protected $fillable = [
+        'food_id',
+        'table_id',
         'quantity'
     ];
+    
+    public $timestamps = false;
     
     public function food()
     {

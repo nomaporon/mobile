@@ -93,4 +93,10 @@ class AppController extends Controller
                 ]
             );
     }
+    
+    public function add_order_list(Request $request, OrderList $order_list)
+    {
+        $input = $request->all();
+        $order_list->fill($input)->save();
+    }
 }
