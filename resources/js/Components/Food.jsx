@@ -10,7 +10,7 @@ const Food = (props) => {
       modal = (
         <div className='modal'>
           <div className='modal-inner'>
-            <div className='modal-content'>
+            <div className='modal-food-info'>
               <p>{food.name}</p>
               <p>{food.price}</p>
             </div>
@@ -48,15 +48,17 @@ const Food = (props) => {
     }
     
     return (
-        <div className='food-card'>
-            <div 
-                className='food-item'
-                onClick={() => setIsModalOpen(true)}
-            >
-                <p>{food.name}</p>
-                <p>{food.price}</p>
-            </div>
-            {modal}
+        <div className='food-card-wrapper'>
+          <div 
+            className='food-card'
+            onClick={() => setIsModalOpen(true)}
+          >
+              <div className='food-item'>
+                  <p>{food.name}</p>
+                  <p>{food.price}</p>
+              </div>
+          </div>
+          {modal}
         </div>
         );
     
