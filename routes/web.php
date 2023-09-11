@@ -34,6 +34,7 @@ Route::controller(AppController::class)->group(function(){
     Route::post('/add_order', 'add_order_list');
     Route::delete('/list', 'all_delete_order_list');
     Route::post('/add_order_history', 'add_order_history');
+    Route::delete('/history', 'delete_order_history');
 });
 
 Route::get('/Welcome', function () {
