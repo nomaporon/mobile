@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
-import { Link, useForm } from '@inertiajs/react';
+import { useForm } from '@inertiajs/react';
+import { Link } from "react-router-dom";
 
 const Food = (props) => {
   const food = props.food;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [count, setCount] = useState(1);
+  
   const {data, setData, post} = useForm({
-    food_id: "",
+    food_id: 1,
     table_id: 1,
     quantity: count
   });
   
-  const handleSetCount = (count) => {
-    setCount(count);
-    setData("quantity", count);
+  const handleSetCount = (opr) => {
+    if (count < 10 && opr === "plus") {
+      setCount(count + 1);
+      setData("quantity", count + 1); 
+    } else if (count > 1 && opr === "minus") {
+      setCount(count - 1);
+      setData("quantity", count - 1); 
+    }
   }
   
   let modal;
@@ -28,14 +35,14 @@ const Food = (props) => {
           <div className='counter'>
             <button
               className='count-btn'
-              onClick={() => {if (count > 1) { handleSetCount(count - 1) }}}
+              onClick={() => handleSetCount("minus")}
             >
               -
             </button>
             <p>{count}</p>
             <button
               className='count-btn'
-              onClick={() => {if (count < 10) { handleSetCount(count + 1) }}}
+              onClick={() => handleSetCount("plus")}
             >
               +
             </button>
@@ -50,12 +57,17 @@ const Food = (props) => {
             >
               キャンセル
             </button>
-            <button
-              className='add-order-list-btn'
-              onClick={() => post("/add_order")}
-            >
-              注文リストに追加
-            </button>
+            <Link to="/list">
+              <button
+                className='add-order-list-btn'
+                onClick={() => {
+                  setIsModalOpen(false)
+                  post("/add_order")
+                }}
+              >
+                注文リストに追加
+              </button>
+            </Link>
           </div>
         </div>
       </div>
