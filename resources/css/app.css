@@ -4,17 +4,18 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    margin: 5px auto 0;
+    margin: 10px auto 0;
     background-color: #C0C0C0;
 }
 
 .title {
+    margin: 5px 0;
     text-align: center;
 }
 
 .category-header {
     position: fixed;
-    top: 95px;
+    top: 68px;
     left: 0;
     right: 0;
     width: 100%;
@@ -33,9 +34,13 @@ header {
 }
 
 .menu-index {
-    margin: 160px auto 15px;
+    margin: 134px auto 66px;
     width: 100%;
     justify-content: center;
+}
+
+.food-cards-wrapper {
+    margin: 0 auto;
 }
 
 .food-card-wrapper {
@@ -118,4 +123,26 @@ footer {
     box-shadow: 0 0 6px #e8e8e8;
     background-color: #C0C0C0;
     cursor: pointer;
+}
+
+.table-wrapper {
+    margin: 78px auto 66px;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+table th {
+    text-align: center;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+table td {
+    text-align: center;
+    border: none;
 }

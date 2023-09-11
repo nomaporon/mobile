@@ -10,8 +10,8 @@ import "../../css/app.css";
 const App = (props) => {
   {/*
     categories [Array]  [{"id" => 1, "category" => "おすすめ", "foods" => [{"name" => "焼肉定食", "price" => 650}, {"name" => "サラダ", "price" => 250}]}, ...]
-    order_list [Array]  [{id: 1, food_id: 10, table_id: 1, quantity: 1}, {id: 2, food_id: 8, table_id: 1, quantity: 2},...]
-    order_history [Array]  [{id: 1, food_id: 1, table_id: 1, quantity: 1, is_served: 1,..},...]
+    order_list [Array]  [{"food_name" => "オレンジジュース", "quantity" => 1, "price" => 200}, {"food_name" => "アイスクリーム", "quantity" => 2, "price" => 600},...]
+    order_history [Object]  {"order_history" => [{"food_name" => "オレンジジュース", "quantity" => 1, "price" => 200},..], total_price => 1250}
   */}
   const categories = props.categories;
   const order_list = props.order_list;

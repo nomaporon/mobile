@@ -23,9 +23,11 @@ const Menu = (props) => {
                 )) }
             </div>
             <div className="menu-index">
-                { menuIndex.map((food) => (
-                    <Food food={food} />
-                )) }
+                <div className="food-cards-wrapper">
+                    { menuIndex.map((food) => (
+                        <Food food={food} />
+                    )) }
+                </div>
             </div>
         </div>
         );
