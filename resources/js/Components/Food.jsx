@@ -30,7 +30,7 @@ const Food = (props) => {
         <div className='modal-inner'>
           <div className='modal-food-info'>
             <p>{food.name}</p>
-            <p>{food.price}</p>
+            <p>{food.price}円</p>
           </div>
           <div className='counter'>
             <button
@@ -65,7 +65,7 @@ const Food = (props) => {
                   post("/add_order")
                 }}
               >
-                注文リストに追加
+                リストに追加
               </button>
             </Link>
           </div>
@@ -85,7 +85,7 @@ const Food = (props) => {
         >
             <div className='food-item'>
                 <p>{food.name}</p>
-                <p>{food.price}</p>
+                <p>{food.price}円</p>
             </div>
         </div>
         {modal}
