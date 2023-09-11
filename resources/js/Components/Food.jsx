@@ -57,7 +57,7 @@ const Food = (props) => {
             >
               キャンセル
             </button>
-            <Link to="/list">
+            <Link to="/">
               <button
                 className='add-order-list-btn'
                 onClick={() => {
