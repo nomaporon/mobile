@@ -8,6 +8,10 @@ header {
     background-color: #C0C0C0;
 }
 
+a:-webkit-any-link {
+    color: black;
+}
+
 .title {
     margin: 5px 0;
     text-align: center;
@@ -200,14 +204,13 @@ table td {
 }
 
 .bill-btn-wrapper {
-    float: right;
     margin: 0 30px;
 }
 
 .bill-btn {
-    display: block;
     height: 56px;
     width: 126px;
+    margin: 0 0 0 auto;
     text-align: center;
     background-color: #C0C0C0;
     cursor: pointer; 
@@ -220,4 +223,9 @@ table td {
 .total-price {
     text-align: right;
     margin: 0 30px;
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 20px
 }
