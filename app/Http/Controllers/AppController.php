@@ -101,6 +101,25 @@ class AppController extends Controller
         $order_list->fill($input)->save();
     }
     
+    public function add_order_history(OrderList $order_lists, OrderHistory $order_history)
+    {
+        $orders = $order_lists->get();
+        $data = array();
+        foreach ($orders as $order){
+            array_push($data, array(
+                    "food_id" => $order['food_id'],
+                    "table_id" => $order['table_id'],
+                    "quantity" => $order['quantity'],
+                    "created_at" => now(),
+                    "is_served" => 0
+                )
+            );
+        }
+        
+        DB::table('order_histories')->insert($data);
+        DB::table('order_lists')->truncate();
+    }
+    
     public function all_delete_order_list()
     {
         DB::table('order_lists')->truncate();

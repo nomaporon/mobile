@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../Components/Header';
 import Table from '../../Components/Table';
 import { router } from '@inertiajs/react';
+import { Link } from "react-router-dom";
 
 const List = (props) => {
   /*
@@ -20,12 +21,34 @@ const List = (props) => {
     router.delete("/list")
   }
   
+  const handleAddOrderHistory = () => {
+    router.post("/add_order_history")
+  }
+  
   let order_list_content = (
-    <div className="table-wrapper">
-      <Table
-        table_header={table_header}
-        table_content={table_content}
-      />
+    <div>
+      <div className="table-wrapper">
+        <Table
+          table_header={table_header}
+          table_content={table_content}
+        />
+      </div>
+      <div className="order-list-btn-wrapper">
+        <div 
+          className="delete-all-order-btn"
+          onClick={() => handleDeleteAllOrder()}
+        >
+          全て取り消し
+        </div>
+        <Link to="/history">
+          <div 
+            className="create-order-btn"
+            onClick={() => handleAddOrderHistory()}
+          >
+            注文
+          </div>
+        </Link>
+      </div>
     </div>
   );
   if (!order_list.length){
@@ -41,17 +64,6 @@ const List = (props) => {
       <Header title="注文リスト" />
       <div className="order-list">
         {order_list_content}
-        <div className="order-list-btn-wrapper">
-          <div 
-            className="delete-all-order-btn"
-            onClick={() => handleDeleteAllOrder()}
-          >
-            全て取り消し
-          </div>
-          <div className="create-order-btn">
-            注文
-          </div>
-        </div>
       </div>
     </div>
   );
