@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../Components/Header';
 import Table from '../../Components/Table';
 import { router } from '@inertiajs/react';
+import { Link } from "react-router-dom";
 
 const List = (props) => {
   /*
@@ -18,6 +19,10 @@ const List = (props) => {
   
   const handleDeleteAllOrder = () => {
     router.delete("/list")
+  }
+  
+  const handleAddOrderHistory = () => {
+    router.post("/add_order_history")
   }
   
   let order_list_content = (
@@ -48,9 +53,14 @@ const List = (props) => {
           >
             全て取り消し
           </div>
-          <div className="create-order-btn">
-            注文
-          </div>
+          <Link to="/history">
+            <div 
+              className="create-order-btn"
+              onClick={() => handleAddOrderHistory()}
+            >
+              注文
+            </div>
+          </Link>
         </div>
       </div>
     </div>

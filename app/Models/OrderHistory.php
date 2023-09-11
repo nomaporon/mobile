@@ -9,9 +9,14 @@ class OrderHistory extends Model
 {
     use HasFactory;
     
+    const UPDATED_AT = NULL;
+    
     protected $table = 'order_histories';
     
     protected $fillable = [
+        'food_id',
+        'table_id',
+        'quantity',
         'is_served'
     ];
     
