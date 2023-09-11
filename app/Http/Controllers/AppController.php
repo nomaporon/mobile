@@ -124,4 +124,9 @@ class AppController extends Controller
     {
         DB::table('order_lists')->truncate();
     }
+    
+    public function delete_order_history()
+    {
+        DB::table('order_histories')->truncate();
+    }
 }

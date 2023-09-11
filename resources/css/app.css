@@ -160,9 +160,31 @@ table td {
 .delete-all-order-btn, .create-order-btn {
     display: inline-block;
     width: 126px;
-    padding: 16px 0;
     margin: 0 15px;
     text-align: center;
     background-color: #C0C0C0;
     cursor: pointer;
+}
+
+.bill-btn-wrapper {
+    float: right;
+    margin: 0 30px;
+}
+
+.bill-btn {
+    display: block;
+    height: 56px;
+    width: 126px;
+    text-align: center;
+    background-color: #C0C0C0;
+    cursor: pointer; 
+}
+
+.bill-btn p {
+    line-height: 56px;
+}
+
+.total-price {
+    text-align: right;
+    margin: 0 30px;
 }

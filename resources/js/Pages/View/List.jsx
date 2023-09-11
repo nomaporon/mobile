@@ -38,14 +38,14 @@ const List = (props) => {
           className="delete-all-order-btn"
           onClick={() => handleDeleteAllOrder()}
         >
-          全て取り消し
+          <p>全て取り消し</p>
         </div>
         <Link to="/history">
           <div 
             className="create-order-btn"
             onClick={() => handleAddOrderHistory()}
           >
-            注文
+            <p>注文</p>
           </div>
         </Link>
       </div>

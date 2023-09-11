@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../Components/Header';
 import Table from '../../Components/Table';
+import { router } from '@inertiajs/react';
 
 const History = (props) => {
   /*
@@ -17,10 +18,12 @@ const History = (props) => {
     table_content.push(Object.values(order))
   );
   
-  return (
-    <div>
-      <Header title="注文履歴一覧" />
-      <div className="order-history">
+  const handleDeleteOrderHistory = () => {
+    router.delete("/history")
+  }
+  
+  let order_history_content = (
+      <div>
         <div className="table-wrapper">
           <Table 
             table_header={table_header}
@@ -28,8 +31,32 @@ const History = (props) => {
           />
         </div>
         <div className="total-price">
-          <p>合計金額　{total_price}円</p>
+          <h3>合計金額　{total_price}円</h3>
         </div>
+        <div className="bill-btn-wrapper">
+          <div 
+            className="bill-btn"
+            onClick={() => handleDeleteOrderHistory()}
+          >
+            <p>お会計</p>
+          </div>
+        </div>
+      </div>
+    );
+    
+    if (!order_history.length){
+      order_history_content = (
+        <div>
+          <p>まだ注文されていません</p>
+        </div>
+      );
+    }
+  
+  return (
+    <div>
+      <Header title="注文履歴一覧" />
+      <div className="order-history">
+        {order_history_content}
       </div>
     </div>
   );
