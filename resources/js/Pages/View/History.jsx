@@ -27,6 +27,9 @@ const History = (props) => {
             table_content={table_content}
           />
         </div>
+        <div className="total-price">
+          <p>合計金額　{total_price}円</p>
+        </div>
       </div>
     </div>
   );
