@@ -1,23 +1,27 @@
-/*.header {*/
-/*    width: 360px;*/
-/*    height: 60px;*/
-/*    background-color: #C0C0C0；*/
-/*}*/
-
 header {
-    padding: 5px 0;
-    margin: 5px auto 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 10px auto 0;
     background-color: #C0C0C0;
 }
 
 .title {
+    margin: 5px 0;
     text-align: center;
 }
 
 .category-header {
-    margin: 0 auto 15px;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    background-color: #C0C0C0;
 }
 
 .category {
@@ -29,19 +33,36 @@ header {
     cursor: pointer;
 }
 
+.menu-index {
+    margin: 134px auto 66px;
+    width: 100%;
+    justify-content: center;
+}
+
+.food-cards-wrapper {
+    margin: 0 auto;
+}
+
+.food-card-wrapper {
+    display: inline-block;
+    margin: 5px 5px;
+    width: 175px;
+    height: 200px;
+    background-color: #fff;
+    box-shadow: 0 0 6px #e8e8e8;
+    border-radius: 4px;
+}
+
 .food-card {
     display: inline-block;
-    width: 22.5%;
-    margin-right: 24px;
+    width: 175px;
+    height: 200px;
     text-align: center;
-    box-shadow: 0 0 6px #e8e8e8;
-    background-color: #fff;
     cursor: pointer;
 }
 
 .food-item {
-    border-radius: 4px;
-    padding: 48px 0 64px;
+    margin: auto;
 }
 
 .modal {
@@ -55,18 +76,44 @@ header {
 
 .modal-inner {
     position: absolute;
-    top: 8%;
+    top: 0;
     right: 0;
     left: 0;
-    width: 200px;
+    bottom: 0;
+    width: 320px;
+    height: 480px;
     margin: auto;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
 }
 
-footer {
+.modal-food-info {
     display: flex;
     justify-content: center;
+}
+
+.modal-food-info p {
+    margin: 0 5px;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+}
+
+.count-btn {
+    margin:0 10px 0 auto;
+}
+
+footer {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #C0C0C0;
 }
 
 .footer-item {
@@ -76,4 +123,26 @@ footer {
     box-shadow: 0 0 6px #e8e8e8;
     background-color: #C0C0C0;
     cursor: pointer;
+}
+
+.table-wrapper {
+    margin: 78px auto 66px;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+table th {
+    text-align: center;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+table td {
+    text-align: center;
+    border: none;
 }

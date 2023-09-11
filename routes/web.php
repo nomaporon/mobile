@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\MenuController;
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\OrderListController;
 use App\Http\Controllers\OrderHistoryController;
 
@@ -27,16 +27,11 @@ use App\Http\Controllers\OrderHistoryController;
 //     Route::get('/category', 'index');
 // });
 
-Route::controller(MenuController::class)->group(function(){
+Route::controller(AppController::class)->group(function(){
     Route::get('/', 'index');
-});
-
-Route::controller(OrderListController::class)->group(function(){
     Route::get('/list', 'index');
-});
-
-Route::controller(OrderHistoryController::class)->group(function(){
     Route::get('/history', 'index');
+    Route::post('/add_order', 'add_order_list');
 });
 
 Route::get('/Welcome', function () {

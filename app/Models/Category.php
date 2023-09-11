@@ -11,10 +11,6 @@ class Category extends Model
     
     protected $table = 'categories';
     
-    protected $fillable = [
-        'name'
-    ];
-    
     public function foods()
     {
         return $this->belongsToMany(Food::class, 'food_category');
