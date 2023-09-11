@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../Components/Header';
 import Table from '../../Components/Table';
+import { router } from '@inertiajs/react';
 
 const List = (props) => {
   /*
@@ -15,15 +16,41 @@ const List = (props) => {
     table_content.push(Object.values(order))
   );
   
+  const handleDeleteAllOrder = () => {
+    router.delete("/list")
+  }
+  
+  let order_list_content = (
+    <div className="table-wrapper">
+      <Table
+        table_header={table_header}
+        table_content={table_content}
+      />
+    </div>
+  );
+  if (!order_list.length){
+    order_list_content = (
+      <div>
+        <p>注文リストは空です</p>
+      </div>
+    );
+  }
+  
   return (
     <div>
       <Header title="注文リスト" />
       <div className="order-list">
-        <div className="table-wrapper">
-          <Table 
-            table_header={table_header}
-            table_content={table_content}
-          />
+        {order_list_content}
+        <div className="order-list-btn-wrapper">
+          <div 
+            className="delete-all-order-btn"
+            onClick={() => handleDeleteAllOrder()}
+          >
+            全て取り消し
+          </div>
+          <div className="create-order-btn">
+            注文
+          </div>
         </div>
       </div>
     </div>

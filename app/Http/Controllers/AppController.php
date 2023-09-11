@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Food;
 use App\Models\OrderList;
 use App\Models\OrderHistory;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class AppController extends Controller
@@ -98,5 +99,10 @@ class AppController extends Controller
     {
         $input = $request->all();
         $order_list->fill($input)->save();
+    }
+    
+    public function all_delete_order_list()
+    {
+        DB::table('order_lists')->truncate();
     }
 }

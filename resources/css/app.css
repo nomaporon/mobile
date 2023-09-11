@@ -125,8 +125,12 @@ footer {
     cursor: pointer;
 }
 
-.table-wrapper {
-    margin: 78px auto 66px;
+.order-list {
+    margin: 98px auto 86px;
+}
+
+.order-history {
+    margin: 98px auto 86px;
 }
 
 table {
@@ -137,6 +141,7 @@ table {
 
 table th {
     text-align: center;
+    border-bottom: 1px solid black;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -145,4 +150,19 @@ table th {
 table td {
     text-align: center;
     border: none;
+}
+
+.order-list-btn-wrapper {
+    text-align: center;
+    margin: 40px 0 0;
+}
+
+.delete-all-order-btn, .create-order-btn {
+    display: inline-block;
+    width: 126px;
+    padding: 16px 0;
+    margin: 0 15px;
+    text-align: center;
+    background-color: #C0C0C0;
+    cursor: pointer;
 }
