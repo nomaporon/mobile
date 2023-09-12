@@ -51,7 +51,7 @@ a:-webkit-any-link {
     display: inline-block;
     margin: 5px 5px;
     width: 175px;
-    height: 200px;
+    height: auto;
     background-color: #fff;
     box-shadow: 0 0 6px #e8e8e8;
     border-radius: 4px;
@@ -60,18 +60,24 @@ a:-webkit-any-link {
 .food-card {
     display: inline-block;
     width: 175px;
-    height: 200px;
+    height: auto;
     text-align: center;
     cursor: pointer;
 }
 
-.food-item {
-    display: flex;
-    justify-content: center;
+
+.food-item-img {
+    width: 170px; 
+    height: 170px;
 }
 
-.food-item p {
+.food-item ul {
+    padding-left: 0;
     margin: 0 auto;
+}
+
+.food-item ul li {
+    list-style: none;
 }
 
 .modal {
@@ -90,20 +96,30 @@ a:-webkit-any-link {
     left: 0;
     bottom: 0;
     width: 320px;
-    height: 480px;
-    margin: auto;
+    margin: 150px auto;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
 }
 
 .modal-food-info {
     font-size: 20px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    margin: 10px auto 0;
 }
 
-.modal-food-info p {
-    margin: 8px 20px;
+.modal-food-img {
+    width: 300px;
+    height: 300px;
+}
+
+.modal-food-info ul {
+    margin: 5px auto; 
+    padding-left: 0;
+}
+
+.modal-food-info ul li {
+    margin: 0 auto;
+    list-style: none;
 }
 
 .counter {

@@ -29,8 +29,11 @@ const Food = (props) => {
       <div className='modal'>
         <div className='modal-inner'>
           <div className='modal-food-info'>
-            <p>{food.name}</p>
-            <p>{food.price}円</p>
+            <img src={'img/no_image.png'} className="modal-food-img" />
+            <ul>
+              <li>{food.name}</li>
+              <li>{food.price}円</li>
+            </ul>
           </div>
           <div className='counter'>
             <button
@@ -84,8 +87,11 @@ const Food = (props) => {
           }}
         >
             <div className='food-item'>
-                <p>{food.name}</p>
-                <p>{food.price}円</p>
+              <img src={'img/no_image.png'} className="food-item-img" />
+              <ul>
+                <li>{food.name}</li>
+                <li>{food.price}円</li>
+              </ul>
             </div>
         </div>
         {modal}
