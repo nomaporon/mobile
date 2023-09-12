@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->string('image')->nullable();
+            $table->string('image')->default('no_image.png');
             $table->integer('unit_price');
             $table->integer('gross_profit')->nullable();
         });
