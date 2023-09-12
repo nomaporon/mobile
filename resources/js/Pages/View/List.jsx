@@ -53,7 +53,7 @@ const List = (props) => {
   );
   if (!order_list.length){
     order_list_content = (
-      <div>
+      <div className="empty-message">
         <p>注文リストは空です</p>
       </div>
     );

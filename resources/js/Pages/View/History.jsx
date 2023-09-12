@@ -23,30 +23,30 @@ const History = (props) => {
   }
   
   let order_history_content = (
-      <div>
-        <div className="table-wrapper">
-          <Table 
-            table_header={table_header}
-            table_content={table_content}
-          />
-        </div>
-        <div className="total-price">
-          <h3>合計金額　{total_price}円</h3>
-        </div>
-        <div className="bill-btn-wrapper">
-          <div 
-            className="bill-btn"
-            onClick={() => handleDeleteOrderHistory()}
-          >
-            <p>お会計</p>
-          </div>
+    <div>
+      <div className="table-wrapper">
+        <Table 
+          table_header={table_header}
+          table_content={table_content}
+        />
+      </div>
+      <div className="total-price">
+        <h3>合計金額　{total_price}円</h3>
+      </div>
+      <div className="bill-btn-wrapper">
+        <div 
+          className="bill-btn"
+          onClick={() => handleDeleteOrderHistory()}
+        >
+          <p>お会計</p>
         </div>
       </div>
-    );
+    </div>
+  );
     
     if (!order_history.length){
       order_history_content = (
-        <div>
+        <div className="empty-message">
           <p>まだ注文されていません</p>
         </div>
       );
