@@ -27,50 +27,54 @@ const Food = (props) => {
   if (isModalOpen) {
     modal = (
       <div className='modal'>
-        <div className='modal-inner'>
-          <div className='modal-food-info'>
-            <img src={'img/'+food.image} className="modal-food-img" />
-            <ul>
-              <li>{food.name}</li>
-              <li>{food.price}円</li>
-            </ul>
-          </div>
-          <div className='counter'>
-            <button
-              className='count-btn'
-              onClick={() => handleSetCount("minus")}
-            >
-              -
-            </button>
-            <p>{count}</p>
-            <button
-              className='count-btn'
-              onClick={() => handleSetCount("plus")}
-            >
-              +
-            </button>
-          </div>
-          <div className='add-order-or-cancel-btns'>
-            <button
-              className='cancel-btn'
-              onClick={() => {
-                setIsModalOpen(false)
-                handleSetCount(1)
-              }}
-            >
-              キャンセル
-            </button>
-            <Link to="/">
-              <button
-                className='add-order-list-btn'
-                onClick={() => {
-                  setIsModalOpen(false)
-                  post("/add_order")
-                }}
-              >
-                リストに追加
-              </button>
-            </Link>
+        <div className='modal-wrapper'>
+          <div className='modal-inner'>
+            <div className='modal-info'>
+              <div className='modal-food-info'>
+                <img src={'img/'+food.image} className="modal-food-img" />
+                <ul>
+                  <li>{food.name}</li>
+                  <li>{food.price}円</li>
+                </ul>
+              </div>
+              <div className='counter'>
+                <button
+                  className='count-btn'
+                  onClick={() => handleSetCount("minus")}
+                >
+                  -
+                </button>
+                <p>{count}</p>
+                <button
+                  className='count-btn'
+                  onClick={() => handleSetCount("plus")}
+                >
+                  +
+                </button>
+              </div>
+              <div className='add-order-or-cancel-btns'>
+                <button
+                  className='cancel-btn'
+                  onClick={() => {
+                    setIsModalOpen(false)
+                    setCount(1)
+                  }}
+                >
+                  キャンセル
+                </button>
+                <Link to="/">
+                  <button
+                    className='add-order-list-btn'
+                    onClick={() => {
+                      setIsModalOpen(false)
+                      post("/add_order")
+                    }}
+                  >
+                    リストに追加
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

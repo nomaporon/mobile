@@ -6,6 +6,7 @@ header {
     right: 0;
     margin: 10px auto 0;
     background-color: #C0C0C0;
+    z-index: 1;
 }
 
 a:-webkit-any-link {
@@ -26,6 +27,7 @@ a:-webkit-any-link {
     display: flex;
     justify-content: center;
     background-color: #C0C0C0;
+    z-index: 1;
 }
 
 .category {
@@ -49,26 +51,34 @@ a:-webkit-any-link {
 
 .food-card-wrapper {
     display: inline-block;
-    margin: 5px 5px;
-    width: 175px;
-    height: auto;
+    margin: 5px;
+    width: 44vw;
+    height: 58vw;
+    position: relative;
+    text-align: center;
     background-color: #fff;
     box-shadow: 0 0 6px #e8e8e8;
     border-radius: 4px;
 }
 
 .food-card {
-    display: inline-block;
-    width: 175px;
-    height: auto;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     cursor: pointer;
 }
 
+.food-item {
+    margin: auto;
+}
 
 .food-item-img {
-    width: 170px; 
-    height: 170px;
+    max-width: 42vw; 
+    max-height: 38vw;
 }
 
 .food-item ul {
@@ -87,29 +97,41 @@ a:-webkit-any-link {
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
-.modal-inner {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+.modal-wrapper {
+    position: relative;
     width: 320px;
+    height: 600px;
     margin: 120px auto;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
 }
 
+.modal-inner {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.modal-info {
+    margin:auto;
+}
+
 .modal-food-info {
     font-size: 20px;
     text-align: center;
-    margin: 10px auto 0;
+    margin: 0 auto 0;
 }
 
 .modal-food-img {
-    width: 300px;
-    height: 300px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .modal-food-info ul {
