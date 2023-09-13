@@ -51,6 +51,7 @@ const List = (props) => {
       </div>
     </div>
   );
+  
   if (!order_list.length){
     order_list_content = (
       <div className="empty-message">
