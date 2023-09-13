@@ -44,13 +44,13 @@ const History = (props) => {
     </div>
   );
     
-    if (!order_history.length){
-      order_history_content = (
-        <div className="empty-message">
-          <p>まだ注文されていません</p>
-        </div>
-      );
-    }
+  if (!order_history.length){
+    order_history_content = (
+      <div className="empty-message">
+        <p>まだ注文されていません</p>
+      </div>
+    );
+  }
   
   return (
     <div>
