@@ -11,15 +11,15 @@ a {
 }
 
 .header {
-    width: 100vw;
-    height: 8vh;
     text-align: center;
     position: fixed;
-    background-color: #C0C0C0;
 }
 
 .header h1 {
-    margin: 1.5vh 0;
+    width: 100vw;
+    padding: 1vh 0;
+    margin: 0;
+    background-color: #C0C0C0;
 }
 
 .sidebar {
@@ -32,9 +32,6 @@ a {
 
 .sidebar-item {
     height: 6vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border:1px solid #000000;
     background-color: #ffffff;
 }
@@ -55,10 +52,9 @@ a {
     background-color: #fff;
 }
 
-.admin-category {
-    padding: 0px 10px;
-    margin: 0 2vw 0;
-    height: 6vh;
+.admin-category p {
+    padding: 15px 10px;
+    margin: 0 2vw;
     box-shadow: 0 0 6px #e8e8e8;
     background-color: #C0C0C0;
     cursor: pointer;
