@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderListController;
 use App\Http\Controllers\OrderHistoryController;
 
@@ -22,11 +23,6 @@ use App\Http\Controllers\OrderHistoryController;
 |
 */
 
-
-// Route::controller(CategoryController::class)->group(function(){
-//     Route::get('/category', 'index');
-// });
-
 Route::controller(AppController::class)->group(function(){
     Route::get('/', 'index');
     Route::get('/list', 'index');
@@ -34,7 +30,11 @@ Route::controller(AppController::class)->group(function(){
     Route::post('/add_order', 'add_order_list');
     Route::delete('/list', 'all_delete_order_list');
     Route::post('/add_order_history', 'add_order_history');
-    Route::delete('/history', 'delete_order_history');
+    Route::delete('/history', 'a');
+});
+
+Route::controller(AdminController::class)->group(function(){
+    Route::get('/admin', 'index'); 
 });
 
 Route::get('/Welcome', function () {

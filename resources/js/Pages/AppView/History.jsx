@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Header from '../../Components/Header';
-import Table from '../../Components/Table';
+import Header from '../../Components/AppComponents/Header';
+import Table from '../../Components/AppComponents/Table';
 import { router } from '@inertiajs/react';
 
 const History = (props) => {

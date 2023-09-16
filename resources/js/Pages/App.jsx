@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from '../Components/Header';
-import Menu from './View/Menu';
-import List from './View/List';
-import History from './View/History';
-import Footer from '../Components/Footer';
+import Menu from './AppView/Menu';
+import List from './AppView/List';
+import History from './AppView/History';
+import Footer from '../Components/AppComponents/Footer';
 import "../../css/app.css";
 
 const App = (props) => {

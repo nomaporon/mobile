@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import Header from '../../Components/Header';
-import Category from '../../Components/Category';
-import Food from '../../Components/Food';
-import "../../../css/app.css";
+import Header from '../../Components/AppComponents/Header';
+import Category from '../../Components/AppComponents/Category';
+import Food from '../../Components/AppComponents/Food';
 
 const Menu = (props) => {
     const categories = props.categories;
