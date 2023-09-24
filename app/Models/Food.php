@@ -18,6 +18,16 @@ class Food extends Model
         'gross_profit'
     ];
     
+    public function rules()
+    {
+        return [
+            'name' => 'required|string|max:30',
+            'image' => 'nullable|string',
+            'unit_price' => 'required|integer',
+            'gross_profit' => 'nullable|integer'    
+        ];
+    }
+    
     public function categories()
     {
         return $this->belongsToMany(Category::class);

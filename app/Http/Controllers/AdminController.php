@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Food;
 use App\Models\OrderList;
 use App\Models\OrderHistory;
+use App\Models\FoodCategory;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
@@ -44,5 +45,35 @@ class AdminController extends Controller
         }
         
         return Inertia::render("Admin", ["categories" => $categories_foods]);
+    }
+    
+    public function add_menu(Request $request)
+    {
+        $request->validate([
+            'food_name' => 'required|string|max:30',
+            'image_data' => 'nullable|string',
+            'unit_price' => 'required|integer',
+            'gross_profit' => 'nullable|integer',
+            'category_id' => 'required|integer'
+        ]);
+        
+        $input = $request->all();
+        $file_name = null;
+        if (!is_null($input['image_data']))
+        {
+            $file_name = $request->file("image_data")->getClientOriginalName();
+            $request->file("image_data")->storeAs('public/img', $file_name);
+        }
+        $data = array(
+            "name" => $input['food_name'],
+            "image" => $file_name,
+            "unit_price" => $input['unit_price'],
+            "gross_profit" => $input['gross_profit']
+        );
+        $food_id = DB::table('foods')->insertGetId($data);
+        
+        DB::table('food_category')->insert(["food_id" => $food_id, "category_id" => $input['category_id']]);
+        
+        return redirect("/admin");
     }
 }

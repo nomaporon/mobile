@@ -6,7 +6,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <Link to="/admin">
                 <div className="sidebar-item">
-                    メニュー編集
+                    <p>メニュー編集</p>
                 </div>
             </Link>
         </div>

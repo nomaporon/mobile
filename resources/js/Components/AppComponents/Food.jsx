@@ -31,7 +31,7 @@ const Food = (props) => {
           <div className='modal-inner'>
             <div className='modal-info'>
               <div className='modal-food-info'>
-                <img src={'img/'+food.image} className="modal-food-img" />
+                <img src={'storage/img/'+food.image} className="modal-food-img" />
                 <ul>
                   <li>{food.name}</li>
                   <li>{food.price}円</li>
@@ -91,7 +91,7 @@ const Food = (props) => {
           }}
         >
             <div className='food-item'>
-              <img src={'img/'+food.image} className="food-item-img" />
+              <img src={'storage/img/'+food.image} className="food-item-img" />
               <ul>
                 <li>{food.name}</li>
                 <li>{food.price}円</li>

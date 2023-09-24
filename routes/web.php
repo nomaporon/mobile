@@ -35,6 +35,8 @@ Route::controller(AppController::class)->group(function(){
 
 Route::controller(AdminController::class)->group(function(){
     Route::get('/admin', 'index'); 
+    Route::get('/add', 'index');
+    Route::post('/add_menu', 'add_menu');
 });
 
 Route::get('/Welcome', function () {
