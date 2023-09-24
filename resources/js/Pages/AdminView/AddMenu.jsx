@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from '@inertiajs/react';
+import { Link } from "react-router-dom";
 
 const AddMenu = (props) => {
     /**
@@ -14,7 +15,8 @@ const AddMenu = (props) => {
       category_id: 1
     });
     const [imageData, setImageData] = useState("storage/img/no_image.png");
-    
+    const [costPrice, setCostPrice] = useState(null);
+
     const onFileChange = (e) => {
         const files = e.target.files;
         if (files.length > 0) {
@@ -27,7 +29,17 @@ const AddMenu = (props) => {
             setData("image_data", file)
         }
     }
-    console.log(props)
+    
+    const handlePriceAndProfit = (price, side) => {
+        if (side == "unit_price") {
+            setData(data => ({...data, unit_price: price}));
+            setData(data => ({...data, gross_profit: price - costPrice}));
+        } else if (side == "cost_price") {
+            setCostPrice(price)
+            setData("gross_profit", data.unit_price - price)
+        }
+    }
+    
     return(
         <div className="content">
             <div className="add-food-info">
@@ -57,18 +69,28 @@ const AddMenu = (props) => {
                 </div>
                 <div className="add-food-price">
                     <h3 className="required">金額</h3>
-                    <input className="price-input-form" type="text" onChange={(e) => setData("unit_price", Number(e.target.value))}/>円
+                    <input 
+                        className="price-input-form"
+                        type="text"
+                        onChange={(e) => handlePriceAndProfit(Number(e.target.value), "unit_price")}
+                    />円
                     <span className="error-message">{props.errors.unit_price}</span>
                 </div>
                 <div className="add-food-price">
                     <h3>原価</h3>
-                    <input className="price-input-form" type="text" onChange={(e) => setData("gross_profit", data.unit_price - Number(e.target.value))}/>円
+                    <input 
+                        className="price-input-form"
+                        type="text"
+                        onChange={(e) => handlePriceAndProfit(Number(e.target.value), "cost_price")}
+                    />円
                     <span className="error-message">{props.errors.gross_profit}</span>
                 </div>
                 <div className="action-btn-wrapper">
-                    <div className="action-btn">
-                        <p>キャンセル</p>
-                    </div>
+                    <Link to="/admin" className="action-btn">
+                        <div>
+                            <p>キャンセル</p>
+                        </div>
+                    </Link>
                     <div 
                         className="action-btn"
                         onClick={() => {

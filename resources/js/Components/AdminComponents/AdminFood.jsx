@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
-const AdminFood = (props) => {
+export const AdminFood = (props) => {
   /**
    * food = {"food_id" => 1, "name" => "焼肉定食", image" => "...", "price" => 650}
    * categories = [{"id" => 1, "category" => "おすすめ", "foods" => [{"food_id" => 1, "name" => "焼肉定食", image" => "...", "price" => 650}, ...]
@@ -11,12 +11,7 @@ const AdminFood = (props) => {
   
   return (
       <div className='admin-food-card-wrapper'>
-        <div 
-          className='admin-food-card'
-          onClick={() => {
-            setIsFoodModalOpen(true)
-          }}
-        >
+        <Link to="/edit" state={food} className='admin-food-card'>
             <div className='admin-food-item'>
               <img src={'storage/img/'+food.image} className="admin-food-item-img" />
               <ul>
@@ -24,7 +19,7 @@ const AdminFood = (props) => {
                 <li>{food.price}円</li>
               </ul>
             </div>
-        </div>
+        </Link>
       </div>
       );
 }
