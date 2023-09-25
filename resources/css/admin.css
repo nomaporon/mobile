@@ -191,15 +191,16 @@ a {
     font-size: 18px;
 }
 
-.add-food-category-form {
-    display: flex;
-    align-items: center;
-}
-
 .category-select {
+    display: block;
     font-size: 18px;
     height: 35px;
-    margin-left: 100px;
+    margin: 10px 0;
+}
+
+.add-category-btn {
+    margin: 1vh 0;
+    font-size: 16px;
 }
 
 .add-food-price {

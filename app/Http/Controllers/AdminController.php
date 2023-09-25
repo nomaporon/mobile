@@ -51,10 +51,10 @@ class AdminController extends Controller
     {
         $request->validate([
             'food_name' => 'required|string|max:30',
-            'image_data' => 'nullable|string',
+            'image_data' => 'nullable',
             'unit_price' => 'required|integer',
             'gross_profit' => 'nullable|integer',
-            'category_id' => 'required|integer'
+            'category_id' => 'required'
         ]);
         
         $input = $request->all();
@@ -72,7 +72,10 @@ class AdminController extends Controller
         );
         $food_id = DB::table('foods')->insertGetId($data);
         
-        DB::table('food_category')->insert(["food_id" => $food_id, "category_id" => $input['category_id']]);
+        $category_ids = $input['category_id'];
+        foreach ($category_ids as $category_id) {
+            DB::table('food_category')->insert(["food_id" => $food_id, "category_id" => $category_id]);
+        }
         
         return redirect("/admin");
     }
