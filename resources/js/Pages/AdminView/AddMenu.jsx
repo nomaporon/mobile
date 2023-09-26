@@ -43,6 +43,11 @@ const AddMenu = (props) => {
         }
     }
     
+    const deleteImage = () => {
+        setImageDataURL("storage/img/no_image.png")
+        setData("image_data", "no_image.png")
+    }
+    
     /*unit_priceとgross_profitを計算してセットする関数*/
     const handlePriceAndProfit = (price, side) => {
         if (side == "unit_price") {
@@ -154,6 +159,7 @@ const AddMenu = (props) => {
                         onChange={(e) => onFileChange(e)}
                     />
                     <span className="error-message">{props.errors.image_data}</span>
+                    <button className="delete-food-img-btn" onClick={() => deleteImage()}>写真を削除</button>
                 </div>
                 <div className="add-food-category-form">
                     <h3>カテゴリ名</h3>

@@ -169,6 +169,11 @@ a {
     margin: 15vh 0 15vh 8vw;
 }
 
+.delete-food-img-btn {
+    display: block;
+    font-size: 18px;
+}
+
 .add-food-name-form, .add-food-img-form, .add-food-category-form,.add-food-price {
     margin: 4vh 0;
 }
@@ -203,16 +208,11 @@ a {
     font-size: 16px;
 }
 
-.add-food-price {
-    display: flex;
-    align-items: center;
-}
-
 .price-input-form {
     width: 100px;
     height: 20px;
     font-size: 18px;
-    margin: 0 10px 0 100px;
+    margin-right: 10px;
 }
 
 .action-btn-wrapper {

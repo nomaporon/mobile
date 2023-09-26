@@ -7,9 +7,9 @@ import Sidebar from '../Components/AdminComponents/Sidebar';
 import "../../css/admin.css";
 
 const Admin = (props) => {
-    {/*
-        categories = [{"id" => 1, "category" => "おすすめ", "foods" => [{"food_id" => 1, "name" => "焼肉定食", image" => "...", "price" => 650}, ...]
-    */}
+    /*
+    * categories = [{"id" => 1, "category" => "おすすめ", "foods" => [{"food_id" => 1, "name" => "焼肉定食", image" => "...", "price" => 650, "gross_profit" => 450}, ...]
+    */
     const categories = props.categories;
 
     return(

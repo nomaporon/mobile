@@ -26,14 +26,15 @@ class AdminController extends Controller
         foreach ($categories->get() as $category){
             /** 
              * food = {"id" => "1", "name" => "焼肉定食, image" => "...", "unit_price" => 650, "gross_profit" => 450}
-             * category_foods = [{"food_id" => 1, "name" => "焼肉定食", image" => "...", "price" => 650},... ]
+             * category_foods = [{"food_id" => 1, "name" => "焼肉定食", image" => "...", "price" => 650, "gross_profit" => 450},... ]
              */
             foreach ($category->foods as $food){
                 array_push($category_foods, array(
                         "food_id" => intval($food->id),
                         "name" => $food->name,
                         "image" => $food->image,
-                        "price" => $food->unit_price
+                        "price" => $food->unit_price,
+                        "gross_profit" => $food->gross_profit
                     ));
             }
             array_push($categories_foods, array(
@@ -58,12 +59,12 @@ class AdminController extends Controller
         ]);
         
         $input = $request->all();
-        $file_name = null;
-        if (!is_null($input['image_data']))
-        {
+        $file_name = "no_image.png";
+        if (!is_null($request->file("image_data"))) {
             $file_name = $request->file("image_data")->getClientOriginalName();
             $request->file("image_data")->storeAs('public/img', $file_name);
         }
+        
         $data = array(
             "name" => $input['food_name'],
             "image" => $file_name,
@@ -75,6 +76,50 @@ class AdminController extends Controller
         $category_ids = $input['category_id'];
         foreach ($category_ids as $category_id) {
             DB::table('food_category')->insert(["food_id" => $food_id, "category_id" => $category_id]);
+        }
+        
+        return redirect("/admin");
+    }
+    
+    public function update_menu(Request $request)
+    {
+        $request->validate([
+            'food_name' => 'required|string|max:30',
+            'image_data' => 'nullable',
+            'unit_price' => 'required|integer',
+            'gross_profit' => 'nullable|integer',
+            'category_id' => 'required'
+        ]);
+        
+        $input = $request->all();
+        if (!is_null($request->file("image_data"))) {
+            $file_name = $request->file("image_data")->getClientOriginalName();
+            $request->file("image_data")->storeAs('public/img', $file_name);
+        } elseif (!is_null($input['image_data'])) {
+            $file_name = $input['image_data'];
+        } else {
+            $file_name = "no_image.png";
+        }
+        
+        $data = array(
+            "name" => $input['food_name'],
+            "image" => $file_name,
+            "unit_price" => $input['unit_price'],
+            "gross_profit" => $input['gross_profit']
+        );
+        
+        DB::table('foods')
+            ->where('id',$input['food_id'])
+            ->update($data);
+        
+        DB::table('food_category')
+            ->where('food_id', $input['food_id'])
+            ->delete();
+        
+        $category_ids = $input['category_id'];
+        foreach ($category_ids as $category_id) {
+            DB::table('food_category')
+                ->insert(["food_id" => $input['food_id'], "category_id" => $category_id]);
         }
         
         return redirect("/admin");
