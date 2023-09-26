@@ -82,7 +82,7 @@ const Food = (props) => {
   }
   
   return (
-      <div className='food-card-wrapper'>
+      <li className="food-card-wrapper">
         <div 
           className='food-card'
           onClick={() => {
@@ -99,7 +99,7 @@ const Food = (props) => {
             </div>
         </div>
         {modal}
-      </div>
+      </li>
       );
 }
 
