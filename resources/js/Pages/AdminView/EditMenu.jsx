@@ -187,8 +187,6 @@ const EditMenu = (props) => {
         })
     }
     
-    console.log(data);
-    
     return(
         <div className="content">
             <div className="add-food-info">
@@ -236,24 +234,24 @@ const EditMenu = (props) => {
                 </div>
                 <div className="action-btn-wrapper">
                     <Link to="/admin" className="action-btn">
-                        <div>
-                            <p>キャンセル</p>
-                        </div>
+                        <p>キャンセル</p>
                     </Link>
-                    <div 
+                    <Link
+                        to="/admin"
                         className="action-btn"
                         onClick={() => {
                             post("/update_menu")
                         }}
                     >
                         <p>変更</p>
-                    </div>
-                    <div 
+                    </Link>
+                    <Link
+                        to="/admin"
                         className="action-btn"
                         onClick={() => deleteMenu()}
                     >
                         <p>メニュー削除</p>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

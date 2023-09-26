@@ -10,6 +10,7 @@ use App\Models\OrderHistory;
 use App\Models\FoodCategory;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -77,8 +78,6 @@ class AdminController extends Controller
         foreach ($category_ids as $category_id) {
             DB::table('food_category')->insert(["food_id" => $food_id, "category_id" => $category_id]);
         }
-        
-        return redirect("/admin");
     }
     
     public function update_menu(Request $request)
@@ -121,16 +120,21 @@ class AdminController extends Controller
             DB::table('food_category')
                 ->insert(["food_id" => $input['food_id'], "category_id" => $category_id]);
         }
-        
-        return redirect("/admin");
     }
     
     public function delete_menu(Food $food)
     {
+        $file_name = $food['image'];
         DB::table('food_category')
             ->where('food_id', $food['id'])
             ->delete();
         $food->delete();
-        return redirect("/admin");
+        Storage::disk('public')->delete('img/'.$file_name);
+    }
+    
+    public function add_category(Request $request, Category $category)
+    {
+        $input = $request->all();
+        $category->fill($input)->save();
     }
 }

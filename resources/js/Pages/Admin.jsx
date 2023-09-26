@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Menu from './AdminView/Menu';
 import AddMenu from './AdminView/AddMenu';
 import EditMenu from './AdminView/EditMenu';
+import AddCategory from './AdminView/AddCategory';
 import Sidebar from '../Components/AdminComponents/Sidebar';
 import "../../css/admin.css";
 
@@ -20,6 +21,7 @@ const Admin = (props) => {
                       <Route path="/admin" element={<h1>メニュー一覧</h1>} />
                       <Route path="/add" element={<h1>メニュー追加</h1>} />
                       <Route path="/edit" element={<h1>メニュー編集</h1>} />
+                      <Route path="/add/category" element={<h1>カテゴリ追加</h1>} />
                     </Routes>
                 </div>
                 <Sidebar />
@@ -27,6 +29,7 @@ const Admin = (props) => {
                   <Route path="/admin" element={<Menu categories={categories} />} />
                   <Route path="/add" element={<AddMenu categories={categories} errors={props.errors} />} />
                   <Route path="/edit" element={<EditMenu categories={categories} errors={props.errors} />} />
+                  <Route path="/add/category" element={<AddCategory errors={props.errors} />} />
                 </Routes>
             </div>
         </BrowserRouter>

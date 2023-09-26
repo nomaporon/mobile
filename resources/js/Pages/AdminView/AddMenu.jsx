@@ -186,18 +186,17 @@ const AddMenu = (props) => {
                 </div>
                 <div className="action-btn-wrapper">
                     <Link to="/admin" className="action-btn">
-                        <div>
-                            <p>キャンセル</p>
-                        </div>
+                        <p>キャンセル</p>
                     </Link>
-                    <div 
+                    <Link
+                        to="/admin"
                         className="action-btn"
                         onClick={() => {
                             post("/add_menu")
                         }}
                     >
                         <p>追加</p>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

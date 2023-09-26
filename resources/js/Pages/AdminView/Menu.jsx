@@ -13,17 +13,16 @@ const Menu = (props) => {
     return(
         <div className="content">
             <div className="admin-category-header">
-                <div className="add-admin-category">
-                    <p>+ カテゴリー追加</p>
-                </div>
-                { categories.map((category) => (
-                    <div 
-                        className="admin-category"
-                        onClick={() => setSelectedCategoryId(category.id - 1)}
-                    >
-                        <p>{category.category}</p>
-                    </div>
-                )) }
+                <ul>
+                    <Link to="/add/category">
+                        <li>+ カテゴリー追加</li>
+                    </Link>
+                    { categories.map((category) => (
+                        <li onClick={() => setSelectedCategoryId(category.id - 1)}>
+                            {category.category}
+                        </li>
+                    )) }
+                </ul>
             </div>
             <div className="admin-menu">
                 <div className="admin-food-cards-wrapper">

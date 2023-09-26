@@ -9,17 +9,16 @@ const Menu = (props) => {
     const menuIndex = categories[selectedCategoryId].foods;
     
     return (
-        <div>
+        <div className="app">
             <Header title="メニュー一覧" />
             <div className="category-header">
-                { categories.map((category) => (
-                    <div 
-                        className="category"
-                        onClick={() => setSelectedCategoryId(category.id - 1)}
-                    >
-                        <Category category_name={category.category} />
-                    </div>
-                )) }
+                <ul>
+                    { categories.map((category) => (
+                        <li onClick={() => setSelectedCategoryId(category.id - 1)}>
+                            {category.category}
+                        </li>
+                    )) }
+                </ul>
             </div>
             <div className="menu-index">
                 <div className="food-cards-wrapper">

@@ -20,6 +20,7 @@ a {
     text-align: center;
     position: fixed;
     background-color: #C0C0C0;
+    z-index: 2;
 }
 
 .header h1 {
@@ -48,32 +49,26 @@ a {
     height: 100%;
 }
 
-.add-admin-category  {
-    width: auto;
-    height: 56px;
-    padding: 0 15px;
-    margin: 0 2vw;
-    box-shadow: 0 0 6px #e8e8e8;
-    background-color: #C0C0C0;
-    cursor: pointer;
+.admin-category-header ul li {
+    list-style: none;
 }
 
-.admin-category-header {
-    position: fixed;
-    top: 8vh;
-    left: 10vw;
+.admin-category-header ul{
+    position: relative;
     width: 100%;
     height: 8vh;
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: flex-end;
+    overflow-x: auto;
     background-color: #fff;
 }
 
-.admin-category {
-    width: auto;
-    height: 56px;
-    padding: 0 15px;
-    margin: 0 2vw;
+.admin-category-header li{
+    margin: 0 10px;
+    padding: 15px;
+    white-space: nowrap;
     box-shadow: 0 0 6px #e8e8e8;
     background-color: #C0C0C0;
     cursor: pointer;
