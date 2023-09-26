@@ -233,6 +233,13 @@ const EditMenu = (props) => {
                     <span className="error-message">{props.errors.gross_profit}</span>
                 </div>
                 <div className="action-btn-wrapper">
+                    <Link
+                        to="/admin"
+                        className="action-btn"
+                        onClick={() => deleteMenu()}
+                    >
+                        <p>メニュー削除</p>
+                    </Link>
                     <Link to="/admin" className="action-btn">
                         <p>キャンセル</p>
                     </Link>
@@ -244,13 +251,6 @@ const EditMenu = (props) => {
                         }}
                     >
                         <p>変更</p>
-                    </Link>
-                    <Link
-                        to="/admin"
-                        className="action-btn"
-                        onClick={() => deleteMenu()}
-                    >
-                        <p>メニュー削除</p>
                     </Link>
                 </div>
             </div>
