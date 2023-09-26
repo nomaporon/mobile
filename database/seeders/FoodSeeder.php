@@ -31,6 +31,7 @@ class FoodSeeder extends Seeder
         
         DB::table('foods')->insert([
             'name'=>'ウーロン茶',
+            'image' => 'no_image.png',
             'unit_price'=>350,
             'gross_profit'=>250,
         ]);
@@ -51,6 +52,7 @@ class FoodSeeder extends Seeder
         
         DB::table('foods')->insert([
             'name'=>'唐揚げ定食',
+            'image' => 'no_image.png',
             'unit_price'=>550,
             'gross_profit'=>400,
         ]);

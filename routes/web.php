@@ -38,6 +38,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/add', 'index');
     Route::post('/add_menu', 'add_menu');
     Route::post('/update_menu', 'update_menu');
+    Route::delete('/menu/{food}', 'delete_menu');
 });
 
 Route::get('/Welcome', function () {

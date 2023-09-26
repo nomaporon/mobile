@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm } from '@inertiajs/react';
+import { useForm, router } from '@inertiajs/react';
 import { Link, useLocation } from "react-router-dom";
 
 const EditMenu = (props) => {
@@ -181,6 +181,12 @@ const EditMenu = (props) => {
         return <div>{categoryForm}</div>;
     }
     
+    const deleteMenu = () => {
+        router.delete(`/menu/${food_info.food_id}`, {
+            onBefore: () => confirm("本当に削除しますか？"),
+        })
+    }
+    
     console.log(data);
     
     return(
@@ -188,7 +194,7 @@ const EditMenu = (props) => {
             <div className="add-food-info">
                 <div className="add-food-name-form">
                     <h3 className="required">メニュー名</h3>
-                    <input className="food-name-form" type="text" value={food_info.name} onChange={(e) => setData("food_name", e.target.value)}/>
+                    <input className="food-name-form" type="text" defaultValue={food_info.name} onChange={(e) => setData("food_name", e.target.value)}/>
                     <span className="error-message">{props.errors.food_name}</span>
                 </div>
                 <div className="add-food-img-form">
@@ -241,6 +247,12 @@ const EditMenu = (props) => {
                         }}
                     >
                         <p>変更</p>
+                    </div>
+                    <div 
+                        className="action-btn"
+                        onClick={() => deleteMenu()}
+                    >
+                        <p>メニュー削除</p>
                     </div>
                 </div>
             </div>

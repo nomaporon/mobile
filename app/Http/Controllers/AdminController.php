@@ -124,4 +124,13 @@ class AdminController extends Controller
         
         return redirect("/admin");
     }
+    
+    public function delete_menu(Food $food)
+    {
+        DB::table('food_category')
+            ->where('food_id', $food['id'])
+            ->delete();
+        $food->delete();
+        return redirect("/admin");
+    }
 }
