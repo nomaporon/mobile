@@ -1,12 +1,18 @@
+.app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
 header {
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    margin: 10px auto 0;
     background-color: #C0C0C0;
-    z-index: 1;
+    z-index: 2;
 }
 
 a:-webkit-any-link {
@@ -14,26 +20,35 @@ a:-webkit-any-link {
 }
 
 .title {
-    margin: 5px 0;
+    margin: 10px 0;
     text-align: center;
+}
+
+.category-header ul li {
+    list-style: none;
 }
 
 .category-header {
-    position: fixed;
+    position: absolute;
     top: 68px;
     left: 0;
     right: 0;
+}
+
+.category-header ul {
+    position: relative;
     width: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: center;
     background-color: #C0C0C0;
+    overflow-x: auto;
     z-index: 1;
 }
 
-.category {
-    display: inline-block;
-    padding: 0px 10px;
-    text-align: center;
+.category-header li {
+    padding: 15px;
+    white-space: nowrap;
     box-shadow: 0 0 6px #e8e8e8;
     background-color: #C0C0C0;
     cursor: pointer;
@@ -45,15 +60,22 @@ a:-webkit-any-link {
     justify-content: center;
 }
 
+.food-cards-wrapper ul li {
+    list-style: none;
+}
+
 .food-cards-wrapper {
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
 }
 
 .food-card-wrapper {
     display: inline-block;
     margin: 5px;
     width: 44vw;
+    max-width: 180px;
     height: 58vw;
+    max-height: 230px;
     position: relative;
     text-align: center;
     background-color: #fff;
@@ -77,17 +99,13 @@ a:-webkit-any-link {
 }
 
 .food-item-img {
-    max-width: 42vw; 
-    max-height: 38vw;
+    max-width: 160px;
+    max-height: 160px;
 }
 
 .food-item ul {
     padding-left: 0;
     margin: 0 auto;
-}
-
-.food-item ul li {
-    list-style: none;
 }
 
 .modal {
@@ -97,13 +115,13 @@ a:-webkit-any-link {
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1;
+    z-index: 2;
 }
 
 .modal-wrapper {
     position: relative;
     width: 320px;
-    height: 600px;
+    height: 530px;
     margin: 120px auto;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;

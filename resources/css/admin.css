@@ -1,0 +1,225 @@
+a {
+    text-decoration: none;
+}
+
+.error-message {
+    font-size: 12px;
+    color: #ff7676;
+    margin: 0 2vw;
+}
+
+.app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.header {
+    width: 100vw;
+    text-align: center;
+    position: fixed;
+    background-color: #C0C0C0;
+    z-index: 2;
+}
+
+.header h1 {
+    padding: 1vh 0;
+    margin: 0;
+}
+
+.sidebar {
+    width: 10vw;
+    height: 100vh;
+    margin-top: 8vh;
+    position: fixed;
+    background-color: #C0C0C0;
+}
+
+.sidebar-item {
+    text-align: center;
+    border:1px solid #000000;
+    background-color: #ffffff;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.content {
+    margin: 8vh 0 0 10vw;
+    height: 100%;
+}
+
+.admin-category-header ul li {
+    list-style: none;
+}
+
+.admin-category-header ul{
+    position: relative;
+    width: 100%;
+    height: 8vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-end;
+    overflow-x: auto;
+    background-color: #fff;
+}
+
+.admin-category-header li{
+    margin: 0 10px;
+    padding: 15px;
+    white-space: nowrap;
+    box-shadow: 0 0 6px #e8e8e8;
+    background-color: #C0C0C0;
+    cursor: pointer;
+}
+
+.admin-menu {
+    position: absolute;
+    top: 16vh;
+    z-index: -1;
+}
+
+.admin-food-cards-wrapper {
+    margin: 0 auto;
+}
+
+.admin-food-card-wrapper {
+    display: inline-block;
+    margin: 15px;
+    width: 210px;
+    height: 300px;
+    position: relative;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 6px #e8e8e8;
+    border-radius: 4px;
+}
+
+.admin-food-card {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.admin-food-item {
+    margin: auto;
+}
+
+.admin-food-item-img {
+    max-width: 200px; 
+    max-height: 200px;
+}
+
+.admin-food-item ul {
+    padding-left: 0;
+    margin: 0 auto;
+}
+
+.admin-food-item ul li {
+    list-style: none;
+}
+
+.admin-card-wrapper {
+    display: inline-block;
+    margin: 65px 20px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 6px #e8e8e8;
+    border-radius: 4px;  
+}
+
+.required::after {
+    content: "必須";
+    color: #ffffff;
+    background: #cc0000;
+    font-size: 0.8em;
+    padding: 0.3em;
+    border-radius: 0.5em;
+    margin-left:0.3em;
+}
+
+.add-admin-food, .delete-admin-food {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 20px;
+    align-items: center;
+    cursor: pointer; 
+}
+
+.add-food-info {
+    margin: 15vh 0 15vh 8vw;
+}
+
+.delete-food-img-btn {
+    display: block;
+    font-size: 18px;
+}
+
+.add-food-name-form, .add-food-img-form, .add-food-category-form,.add-food-price {
+    margin: 4vh 0;
+}
+
+.add-food-img {
+    display: block;
+    margin: 1vh 0;
+    max-width: 300px; 
+    max-height: 300px;
+}
+
+.change-food-img-btn {
+    margin: 1vh 0;
+    font-size: 18px;
+}
+
+.food-name-form {
+    width: 400px;
+    height: 20px;
+    font-size: 18px;
+}
+
+.category-select {
+    display: block;
+    font-size: 18px;
+    height: 35px;
+    margin: 10px 0;
+}
+
+.add-category-btn {
+    margin: 1vh 0;
+    font-size: 16px;
+}
+
+.price-input-form {
+    width: 100px;
+    height: 20px;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.action-btn-wrapper {
+    display: flex;
+    text-align: center;
+}
+
+.action-btn {
+    width: 120px;
+    height: 56px;
+    margin: 0 2vw;
+    box-shadow: 0 0 6px #e8e8e8;
+    background-color: #C0C0C0;
+    cursor: pointer;
+}

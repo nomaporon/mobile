@@ -11,6 +11,19 @@ class Category extends Model
     
     protected $table = 'categories';
     
+    protected $fillable = [
+        'name'
+    ];
+    
+    public $timestamps = false;
+    
+    public function rules()
+    {
+        return [
+            'name' => 'required|string|max:30',
+        ];
+    }
+    
     public function foods()
     {
         return $this->belongsToMany(Food::class, 'food_category');
