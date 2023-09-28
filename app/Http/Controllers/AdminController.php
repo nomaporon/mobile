@@ -132,7 +132,9 @@ class AdminController extends Controller
             ->where('food_id', $food['id'])
             ->delete();
         $food->delete();
-        Storage::disk('s3')->delete('image/'.$file_name);
+        if (!($file_name === "no_image.png")) {
+            Storage::disk('s3')->delete('image/'.$file_name);
+        }
     }
     
     public function add_category(Request $request, Category $category)
