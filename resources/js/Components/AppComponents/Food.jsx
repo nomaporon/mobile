@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useForm } from '@inertiajs/react';
+import React, { useState } from "react";
+import { useForm } from "@inertiajs/react";
 import { Link } from "react-router-dom";
 
 const Food = (props) => {
@@ -26,35 +26,35 @@ const Food = (props) => {
   let modal;
   if (isModalOpen) {
     modal = (
-      <div className='modal'>
-        <div className='modal-wrapper'>
-          <div className='modal-inner'>
-            <div className='modal-info'>
-              <div className='modal-food-info'>
-                <img src={'storage/img/'+food.image} className="modal-food-img" />
+      <div className="modal">
+        <div className="modal-wrapper">
+          <div className="modal-inner">
+            <div className="modal-info">
+              <div className="modal-food-info">
+                <img src={food.image} className="modal-food-img" />
                 <ul>
                   <li>{food.name}</li>
                   <li>{food.price}円</li>
                 </ul>
               </div>
-              <div className='counter'>
+              <div className="counter">
                 <button
-                  className='count-btn'
+                  className="count-btn"
                   onClick={() => handleSetCount("minus")}
                 >
                   -
                 </button>
                 <p>{count}</p>
                 <button
-                  className='count-btn'
+                  className="count-btn"
                   onClick={() => handleSetCount("plus")}
                 >
                   +
                 </button>
               </div>
-              <div className='add-order-or-cancel-btns'>
+              <div className="add-order-or-cancel-btns">
                 <button
-                  className='cancel-btn'
+                  className="cancel-btn"
                   onClick={() => {
                     setIsModalOpen(false)
                     setCount(1)
@@ -64,7 +64,7 @@ const Food = (props) => {
                 </button>
                 <Link to="/">
                   <button
-                    className='add-order-list-btn'
+                    className="add-order-list-btn"
                     onClick={() => {
                       setIsModalOpen(false)
                       post("/add_order")
@@ -84,14 +84,14 @@ const Food = (props) => {
   return (
       <li className="food-card-wrapper">
         <div 
-          className='food-card'
+          className="food-card"
           onClick={() => {
             setIsModalOpen(true)
             setData("food_id", food.food_id);
           }}
         >
-            <div className='food-item'>
-              <img src={'storage/img/'+food.image} className="food-item-img" />
+            <div className="food-item">
+              <img src={food.image} className="food-item-img" />
               <ul>
                 <li>{food.name}</li>
                 <li>{food.price}円</li>

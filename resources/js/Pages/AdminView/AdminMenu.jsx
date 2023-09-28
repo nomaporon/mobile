@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import AdminFood from '../../Components/AdminComponents/AdminFood';
+import AdminFood from "../../Components/AdminComponents/AdminFood";
 
-const Menu = (props) => {
+const AdminMenu = (props) => {
     /**
      * categories = [{"id" => 1, "category" => "おすすめ", "foods" => [{"food_id" => 1, "name" => "焼肉定食", image" => "...", "price" => 650}, ...]
     */
@@ -33,7 +33,7 @@ const Menu = (props) => {
                             </div>
                         </Link>
                     </div>
-                    <div className='admin-card-wrapper'>
+                    <div className="admin-card-wrapper">
                         <div className="delete-admin-food">
                             <p>- メニュー削除</p>
                         </div>
@@ -47,4 +47,4 @@ const Menu = (props) => {
     );
 }
 
-export default Menu;
+export default AdminMenu;
