@@ -11,6 +11,7 @@ use App\Models\FoodCategory;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -33,7 +34,7 @@ class AdminController extends Controller
                 array_push($category_foods, array(
                         "food_id" => intval($food->id),
                         "name" => $food->name,
-                        "image" => $food->image,
+                        "image" => config('menu.image_url').($food->image),
                         "price" => $food->unit_price,
                         "gross_profit" => $food->gross_profit
                     ));
@@ -60,10 +61,11 @@ class AdminController extends Controller
         ]);
         
         $input = $request->all();
+        $file = $request->file("image_data");
         $file_name = "no_image.png";
-        if (!is_null($request->file("image_data"))) {
-            $file_name = $request->file("image_data")->getClientOriginalName();
-            $request->file("image_data")->storeAs('public/img', $file_name);
+        if (!is_null($file)) {
+            $file_name = $file->getClientOriginalName();
+            $file->storeAs('/image', $file_name, 's3');
         }
         
         $data = array(
@@ -91,9 +93,10 @@ class AdminController extends Controller
         ]);
         
         $input = $request->all();
-        if (!is_null($request->file("image_data"))) {
-            $file_name = $request->file("image_data")->getClientOriginalName();
-            $request->file("image_data")->storeAs('public/img', $file_name);
+        $file = $request->file("image_data");
+        if (!is_null($file)) {
+            $file_name = $file->getClientOriginalName();
+            $file->storeAs('/image', $file_name, 's3');
         } elseif (!is_null($input['image_data'])) {
             $file_name = $input['image_data'];
         } else {
@@ -129,7 +132,7 @@ class AdminController extends Controller
             ->where('food_id', $food['id'])
             ->delete();
         $food->delete();
-        Storage::disk('public')->delete('img/'.$file_name);
+        Storage::disk('s3')->delete('image/'.$file_name);
     }
     
     public function add_category(Request $request, Category $category)

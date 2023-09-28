@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useForm, router } from '@inertiajs/react';
+import React, { useState } from "react";
+import { useForm, router } from "@inertiajs/react";
 import { Link, useLocation } from "react-router-dom";
 
 const AddCategory = (props) => {

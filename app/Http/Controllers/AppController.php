@@ -9,6 +9,7 @@ use App\Models\OrderList;
 use App\Models\OrderHistory;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 
 class AppController extends Controller
 {
@@ -31,7 +32,7 @@ class AppController extends Controller
                 array_push($category_foods, array(
                         "food_id" => intval($food->id),
                         "name" => $food->name,
-                        "image" => $food->image,
+                        "image" => config('menu.image_url').($food->image),
                         "price" => $food->unit_price
                     ));
             }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const AdminFood = (props) => {
@@ -9,10 +9,10 @@ export const AdminFood = (props) => {
   const food = props.food;
   
   return (
-      <div className='admin-food-card-wrapper'>
-        <Link to="/edit" state={food} className='admin-food-card'>
-            <div className='admin-food-item'>
-              <img src={'storage/img/' + food.image} className="admin-food-item-img" />
+      <div className="admin-food-card-wrapper">
+        <Link to="/edit" state={food} className="admin-food-card">
+            <div className="admin-food-item">
+              <img src={food.image} className="admin-food-item-img" />
               <ul>
                 <li>{food.name}</li>
                 <li>{food.price}円</li>

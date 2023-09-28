@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useForm } from '@inertiajs/react';
+import React, { useState } from "react";
+import { useForm } from "@inertiajs/react";
 import { Link } from "react-router-dom";
 
 const AddMenu = (props) => {
@@ -14,7 +14,8 @@ const AddMenu = (props) => {
       gross_profit: null,
       category_id: [1]
     });
-    const [imageDataURL, setImageDataURL] = useState("storage/img/no_image.png");/*画像のURLを保持するstate*/
+    const no_image_url = "https://formymobileorderapp.s3.ap-northeast-1.amazonaws.com/image/no_image.png";
+    const [imageDataURL, setImageDataURL] = useState(no_image_url);/*画像のURLを保持するstate*/
     const [costPrice, setCostPrice] = useState(null); /*原価を取得するstate。粗利を計算するために使う*/
     const [countSelectedCategory, setcountSelectedCategory] = useState(1); /*増やしたカテゴリフォームをカウントするstate*/
     /*選択したカテゴリを保持するstate。複数のカテゴリを選択した時にどのカテゴリが選択されているかをis_selectedでチェックする*/
@@ -44,7 +45,7 @@ const AddMenu = (props) => {
     }
     
     const deleteImage = () => {
-        setImageDataURL("storage/img/no_image.png")
+        setImageDataURL(no_image_url)
         setData("image_data", "no_image.png")
     }
     

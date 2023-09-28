@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useForm, router } from '@inertiajs/react';
+import React, { useState } from "react";
+import { useForm, router } from "@inertiajs/react";
 import { Link, useLocation } from "react-router-dom";
 
 const EditMenu = (props) => {
@@ -36,7 +36,8 @@ const EditMenu = (props) => {
         category_id: this_food_category_id
     });
     
-    const [imageData, setImageData] = useState("storage/img/" + food_info.image);
+    const no_image_url = "https://formymobileorderapp.s3.ap-northeast-1.amazonaws.com/image/no_image.png";
+    const [imageData, setImageData] = useState(food_info.image);
     const [costPrice, setCostPrice] = useState(food_info.price - food_info.gross_profit);
     
     const [countSelectedCategory, setcountSelectedCategory] = useState(this_food_category_id.length); /*増やしたカテゴリフォームをカウントするstate*/
@@ -67,7 +68,7 @@ const EditMenu = (props) => {
     }
     
     const deleteImage = () => {
-        setImageData("storage/img/no_image.png")
+        setImageData(no_image_url)
         setData("image_data", "no_image.png")
     }
     

@@ -1,10 +1,10 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Menu from './AdminView/Menu';
-import AddMenu from './AdminView/AddMenu';
-import EditMenu from './AdminView/EditMenu';
-import AddCategory from './AdminView/AddCategory';
-import Sidebar from '../Components/AdminComponents/Sidebar';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AdminMenu from "./AdminView/AdminMenu";
+import AddMenu from "./AdminView/AddMenu";
+import EditMenu from "./AdminView/EditMenu";
+import AddCategory from "./AdminView/AddCategory";
+import Sidebar from "../Components/AdminComponents/Sidebar";
 import "../../css/admin.css";
 
 const Admin = (props) => {
@@ -26,7 +26,7 @@ const Admin = (props) => {
                 </div>
                 <Sidebar />
                 <Routes>
-                  <Route path="/admin" element={<Menu categories={categories} />} />
+                  <Route path="/admin" element={<AdminMenu categories={categories} />} />
                   <Route path="/add" element={<AddMenu categories={categories} errors={props.errors} />} />
                   <Route path="/edit" element={<EditMenu categories={categories} errors={props.errors} />} />
                   <Route path="/add/category" element={<AddCategory errors={props.errors} />} />
