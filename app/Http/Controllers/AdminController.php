@@ -98,7 +98,7 @@ class AdminController extends Controller
             $file_name = $file->getClientOriginalName();
             $file->storeAs('/image', $file_name, 's3');
         } elseif (!is_null($input['image_data'])) {
-            $file_name = $input['image_data'];
+            $file_name = str_replace(config('menu.image_url'), '', $input['image_data']);
         } else {
             $file_name = "no_image.png";
         }
