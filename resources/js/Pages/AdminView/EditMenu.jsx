@@ -27,6 +27,7 @@ const EditMenu = (props) => {
     const this_food_category_id = this_food_categories.map((category) => {
         return category.id
     });
+    /*初期値は元々メニューが持っている情報*/
     const {data, setData, post} = useForm({
         food_id: food_info.food_id,
         food_name: food_info.name,
@@ -37,11 +38,16 @@ const EditMenu = (props) => {
     });
     console.log(data)
     const no_image_url = "https://formymobileorderapp.s3.ap-northeast-1.amazonaws.com/image/no_image.png";
+    /*プレビューで表示する画像用のstate*/
     const [imageData, setImageData] = useState(food_info.image);
+    /*原価を計算する用のstate*/
     const [costPrice, setCostPrice] = useState(food_info.price - food_info.gross_profit);
+    /*カテゴリを増やした際にカテゴリの数をカウントするstate*/
+    const [countSelectedCategory, setcountSelectedCategory] = useState(this_food_category_id.length);
     
-    const [countSelectedCategory, setcountSelectedCategory] = useState(this_food_category_id.length); /*増やしたカテゴリフォームをカウントするstate*/
     /*選択したカテゴリを保持するstate。複数のカテゴリを選択した時にどのカテゴリが選択されているかをis_selectedでチェックする*/
+    /*this_food_category_id_setに含まれているカテゴリIDはis_selectedをtrueとする*/
+    /*select_countは元々選択されていれば初期値を1とする*/
     const this_food_category_id_set = new Set(this_food_category_id)
     const [isSelectedCategory, setIsSelectedCategory] = useState(
         categories.map((category, index) => {
@@ -53,7 +59,8 @@ const EditMenu = (props) => {
             }
         })
     );
-
+    
+    /*ファイルがアップロードされた時に、dataに画像名をセットし、プレビュー用にImageDataをセットする*/
     const onFileChange = (e) => {
         const files = e.target.files;
         if (files.length > 0) {
@@ -67,11 +74,13 @@ const EditMenu = (props) => {
         }
     }
     
+    /*画像削除ボタンを押した時にno_imageの画像に置き換える*/
     const deleteImage = () => {
         setImageData(no_image_url)
         setData("image_data", "no_image.png")
     }
     
+    /*単価と粗利をdataにセットするための関数*/
     const handlePriceAndProfit = (price, side) => {
         if (side == "unit_price") {
             setData(data => ({...data, unit_price: price}));
@@ -83,6 +92,8 @@ const EditMenu = (props) => {
     }
 
     /*どのカテゴリを選択したか判別する変数を管理する関数*/
+    /*プルダウンでカテゴリをクリックした時にはsideを"select"として、is_selectedをtrueに、select_countを1増やす*/
+    /*プルダウンを押した際には一度リセットするためにsideを"unselect"として、is_selectedをfalseに、select_countを1減らす*/
     const handleSelectedCategory = (category_id, side) => {
         if (side == "select") {
             let updated_selected_category = isSelectedCategory.map((category) => (category["id"] === category_id ? {
@@ -92,10 +103,13 @@ const EditMenu = (props) => {
                     select_count: category.select_count + 1
                 } 
             : category))
+            /*どのカテゴリが選択されているかを保持しておくために更新したstateをセットする*/
             setIsSelectedCategory(updated_selected_category);
+            /*現在選択されているカテゴリを更新し、dataにセットする*/
             handleDataCategoryId(updated_selected_category);
         } else if (side == "unselect") {
             let arr = [];
+            /*複数のプルダウンで複数回同じカテゴリが選ばれている時、is_selectedはtrueのままselect_countを1減らす*/
             isSelectedCategory.map((category) => {
                 if (category["select_count"] === 1 && category["id"] === category_id) {
                     arr.push({
@@ -115,10 +129,12 @@ const EditMenu = (props) => {
                     arr.push(category)
                 }
             });
+            /*どのカテゴリが選択されているかを保持しておくために更新したstateをセットする*/
             setIsSelectedCategory(arr);
         }
     }
     
+    /*選択されているカテゴリのカテゴリIDを取得して、dataにセットする関数*/
     const handleDataCategoryId = (updated_selected_category) => {
         let selected_category = updated_selected_category.filter(category => category["is_selected"] === true);
         const selected_category_id = selected_category.map((category) => {
@@ -128,9 +144,12 @@ const EditMenu = (props) => {
     }
     
     /*カテゴリの追加・削除を行う関数。削除は難しそうだったので保留*/
+    /*カテゴリ追加ボタンを押した時に、sideをaddとして*/
     const handleCountSelectCategory = (side) => {
         if (side == "add" && countSelectedCategory < categories.length) {
+            /*プルダウンの数を増やす用のstate更新*/
             setcountSelectedCategory(countSelectedCategory + 1);
+            /*追加するプルダウンの初期値をcategory_idが1のものとするため、そのselect_countを1増やす*/
             let updated_selected_category = isSelectedCategory.map((category) => (category["id"] === 1 ? {
                     id: category.id, 
                     name: category.name, 
