@@ -36,7 +36,7 @@ const EditMenu = (props) => {
         gross_profit: food_info.gross_profit,
         category_id: this_food_category_id
     });
-    console.log(data)
+    
     const no_image_url = "https://formymobileorderapp.s3.ap-northeast-1.amazonaws.com/image/no_image.png";
     /*プレビューで表示する画像用のstate*/
     const [imageData, setImageData] = useState(food_info.image);
@@ -144,7 +144,7 @@ const EditMenu = (props) => {
     }
     
     /*カテゴリの追加・削除を行う関数。削除は難しそうだったので保留*/
-    /*カテゴリ追加ボタンを押した時に、sideをaddとして*/
+    /*カテゴリ追加ボタンを押した時に、sideをaddとしてis_selectedをtrueに、select_countを1増やす。また、プルダウンの数も増やす*/
     const handleCountSelectCategory = (side) => {
         if (side == "add" && countSelectedCategory < categories.length) {
             /*プルダウンの数を増やす用のstate更新*/
