@@ -35,7 +35,7 @@ const EditMenu = (props) => {
         gross_profit: food_info.gross_profit,
         category_id: this_food_category_id
     });
-    
+    console.log(data)
     const no_image_url = "https://formymobileorderapp.s3.ap-northeast-1.amazonaws.com/image/no_image.png";
     const [imageData, setImageData] = useState(food_info.image);
     const [costPrice, setCostPrice] = useState(food_info.price - food_info.gross_profit);
